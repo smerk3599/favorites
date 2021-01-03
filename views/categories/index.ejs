@@ -7,8 +7,15 @@
     <nav>
       <%- include ('../partials/nav.ejs') %>
     </nav>
-    <div class="">
-      
+    <div class="center">
+      <ul>
+        <% for (let category of categories) { %>
+          <li>
+            <a href="/category/<%=category._id%>">
+              <%= category.name %>
+          </li>
+        <% } %>
+      </ul>
     </div>
   </body>
 </html>
