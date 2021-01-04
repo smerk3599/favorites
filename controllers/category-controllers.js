@@ -26,5 +26,12 @@ categories.get('/', (req,res) => {
     })
 })
 
+// DELETE
+categories.delete('/:id', (req, res) => {
+  Category.findByIdAndRemove(req.params.id, (err, deletedCategory) => {
+    res.redirect('/category')
+  })
+})
+
 
 module.exports = categories;

@@ -7,12 +7,19 @@
     <nav>
       <%- include ('../partials/nav.ejs') %>
     </nav>
-    <div class="center">
+    <div>
       <ul>
         <% for (let category of categories) { %>
           <li>
-            <a href="/category/<%=category._id%>">
-              <%= category.name %>
+            <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= category.name %>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="/category/<%=category._id%>">Favorite <%= category.name %></a></li>
+                <li><a class="dropdown-item" href="#">Delete Category</a></li>
+              </ul>
+            </div>
           </li>
         <% } %>
       </ul>
