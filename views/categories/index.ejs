@@ -12,12 +12,15 @@
         <% for (let category of categories) { %>
           <li>
             <div class="dropdown">
-              <button type="button" class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <button type="button" class="btn btn-primary btn-lg dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <%= category.name %>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" href="/category/<%=category._id%>">Favorite <%= category.name %></a></li>
-                <li><a class="dropdown-item" href="#">Delete Category</a></li>
+                <li><form action="/category/<%=category._id%>?_method=DELETE" method="POST">
+                  <input id="deleteB" type="submit" value="Delete <%= category.name %>"/>
+                  </form>
+                </li>
               </ul>
             </div>
           </li>

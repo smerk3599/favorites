@@ -26,6 +26,15 @@ categories.get('/', (req,res) => {
     })
 })
 
+// SHOW
+categories.get('/:id', (req, res) => {
+  Category.findById(req.params.id, (error, foundCategory) => {
+    res.render('categories/show.ejs', {
+      category: foundCategory
+    })
+  })
+})
+
 // DELETE
 categories.delete('/:id', (req, res) => {
   Category.findByIdAndRemove(req.params.id, (err, deletedCategory) => {

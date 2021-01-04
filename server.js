@@ -46,6 +46,8 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 const categoryController = require('./controllers/category-controllers.js');
 app.use('/category', categoryController);
+const itemController = require('./controllers/item-controllers.js');
+app.use('/item', itemController);
 //___________________
 // Routes
 //___________________
