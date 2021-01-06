@@ -26,6 +26,15 @@ categories.get('/', (req,res) => {
     })
 })
 
+// EDIT
+categories.get('/edit/:id', (req, res) => {
+  Category.findById(req.params.id, (error, foundCategory) => {
+    res.render('categories/edit.ejs', {
+      category: foundCategory
+    })
+  })
+})
+
 // SHOW
 categories.get('/:id', (req, res) => {
   Category.findById(req.params.id, (error, foundCategory) => {
@@ -41,5 +50,11 @@ categories.delete('/:id', (req, res) => {
   })
 })
 
+//UPDATE
+categories.put('/:id', (req,res) => {
+  Category.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedModel) => {
+    res.redirect('/category');
+  })
+})
 
 module.exports = categories;

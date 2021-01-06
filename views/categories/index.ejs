@@ -16,7 +16,11 @@
                 <%= category.name %>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="/category/<%=category._id%>">Favorite <%= category.name %></a></li>
+                <li><a class="dropdown-item showB" href="/category/<%=category._id%>">Favorite <%= category.name %></a></li>
+                <li><form action="/category/edit/<%=category._id%>">
+                  <input class="editB" type="submit" value="Edit <%= category.name %>"/>
+                  </form>
+                </li>
                 <li><form action="/category/<%=category._id%>?_method=DELETE" method="POST">
                   <input class="deleteB" type="submit" value="Delete <%= category.name %>"/>
                   </form>

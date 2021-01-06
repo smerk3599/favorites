@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container mx-auto" style="width: 100px;">
+      <h1 class="container mx-auto" style="width: 100px;">Edit <%=category.name%></h1>
+      <form action="/category/<%=category.id%>?_method=PUT" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="<%=category.name%>" />
+        <input type="submit" value="Submit">
+      <form>
+  </body>

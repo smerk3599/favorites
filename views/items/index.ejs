@@ -11,7 +11,7 @@
     <ol class="container mx-auto" style="width: 100px;">
       <% const sortedItems = groupItems.sort((a, b) =>{
         return a.rank - b.rank;
-      })%>
+      });%>
       <% for (let item of groupItems ) { %>
         <li>
           <div class="dropdown">
@@ -26,7 +26,7 @@
                 </form>
               </li>
               <li>
-                <form class="dropdown-item" action="/item/rankdown/<%=category%>/<%=item.rank%>?_method=PUT" method="POST">
+                <form class="dropdown-item" action="/item/rankdown/<%=category%>/<%=item.rank%>/<%=groupItems.length%>?_method=PUT" method="POST">
                 <input type="submit" class="rankB" value="Rank <%= item.name %> Down"/>
                 </form>
               </li>

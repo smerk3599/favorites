@@ -43,14 +43,34 @@ items.delete('/:id/:catName', (req, res) => {
 // UPDATE RANK UP
 items.put('/rankup/:catName/:rank', (req, res) => {
   if (req.params.rank > 1) {
-    console.log(req.params.rank);
-    const shiftItemRank = req.params.rank - 1;
-    Item.findOneAndUpdate({'rank': shiftItemRank}, {$inc: {rank: 1}}, {new: true}, (err, updatedModel) => {
-      console.log('shift!');
+    let shiftItemRank = parseInt(req.params.rank) - 1;
+    Item.findOneAndUpdate({'rank': shiftItemRank}, {$inc: {rank: 0.5}}, {new: true}, (err, updatedModel) => {
       Item.findOneAndUpdate({'rank': req.params.rank}, {$inc: {rank: -1}}, {new: true}, (err, updatedModel) => {
-      res.redirect(`../../${req.params.catName}`);
+        shiftItemRank += 0.5;
+        Item.findOneAndUpdate({'rank': shiftItemRank}, {$inc: {rank: 0.5}}, {new: true}, (err, updatedModel) => {
+          res.redirect(`../../${req.params.catName}`);
+        })
       })
     })
+  } else {
+    res.redirect(`../../${req.params.catName}`);
+  }
+})
+
+// UPDATE RANK DOWN
+items.put('/rankdown/:catName/:rank/:arrayLength', (req, res) => {
+  if (req.params.rank < req.params.arrayLength) {
+    let shiftItemRank = parseInt(req.params.rank) + 1;
+    Item.findOneAndUpdate({'rank': shiftItemRank}, {$inc: {rank: -0.5}}, {new: true}, (err, updatedModel) => {
+      Item.findOneAndUpdate({'rank': req.params.rank}, {$inc: {rank: 1}}, {new: true}, (err, updatedModel) => {
+        shiftItemRank -= 0.5;
+        Item.findOneAndUpdate({'rank': shiftItemRank}, {$inc: {rank: -0.5}}, {new: true}, (err, updatedModel) => {
+          res.redirect(`../../../${req.params.catName}`);
+        })
+      })
+    })
+  } else {
+    res.redirect(`../../../${req.params.catName}`);
   }
 })
 
