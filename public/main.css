@@ -3,24 +3,49 @@ ul {
   text-align: center;
 }
 
-#deleteB {
+.deleteB {
     display: inline-block;
     border: none;
-    padding: 0rem 1rem;
+    padding: 0rem 1.4rem;
     margin: 0;
     text-decoration: none;
+    box-sizing: border-box;
     background: #ffffff;
     color: #000000;
     font-family: sans-serif;
     font-size: 1rem;
     cursor: pointer;
-    /* text-align: center; */
+    /* text-align: left; */
     transition: background 250ms ease-in-out,
                 transform 150ms ease;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
 
+.rankB {
+    display: inline-block;
+    border: none;
+    /* padding: 0rem 1rem; */
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    background: #ffffff;
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    /* text-align: left; */
+    transition: background 250ms ease-in-out,
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.showB {
+  padding: 0 1.4rem;
+  /* box-sizing: border-box; */
+
+}
 #description {
   border-radius: 8px;
   resize: none;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/navItems.ejs') %>
+    </nav>
+    <h1 class="container mx-auto" style="width: 100px;">Favorite <%=category%></h1>
+    <ol class="container mx-auto" style="width: 100px;">
+      <% const sortedItems = groupItems.sort((a, b) =>{
+        return a.rank - b.rank;
+      })%>
+      <% for (let item of groupItems ) { %>
+        <li>
+          <div class="dropdown">
+            <button type="button" class="btn btn-primary btn-lg dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= item.name %>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item showB" href="/item/<%=item._id%>">Show <%= item.name %></a></li>
+              <li>
+                <form class="dropdown-item" action="/item/rankup/<%=category%>/<%=item.rank%>?_method=PUT" method="POST">
+                <input type="submit" class="rankB" value="Rank <%= item.name %> Up"/>
+                </form>
+              </li>
+              <li>
+                <form class="dropdown-item" action="/item/rankdown/<%=category%>/<%=item.rank%>?_method=PUT" method="POST">
+                <input type="submit" class="rankB" value="Rank <%= item.name %> Down"/>
+                </form>
+              </li>
+              <li><form action="/item/<%=item._id%>/<%=category%>?_method=DELETE" method="POST">
+                <input class="deleteB" type="submit" value="Delete <%= item.name %>"/>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </li>
+      <% } %>
+    </ol>
+  </body>
+</html>

@@ -9,7 +9,7 @@
   </nav>
     <h1 class="container mx-auto" style="width: 600px;">Please Enter a New Item</h1>
     <div class="container mx-auto" style="width: 350px;">
-      <form action="/item" method="post">
+      <form action="/item/<%=category%>" method="post">
         <input type="hidden" name="category" value="<%=category%>">
         <label for="name">Name:</label>
         <input type="text" name="name" required /><br>

@@ -18,7 +18,7 @@
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" href="/category/<%=category._id%>">Favorite <%= category.name %></a></li>
                 <li><form action="/category/<%=category._id%>?_method=DELETE" method="POST">
-                  <input id="deleteB" type="submit" value="Delete <%= category.name %>"/>
+                  <input class="deleteB" type="submit" value="Delete <%= category.name %>"/>
                   </form>
                 </li>
               </ul>
