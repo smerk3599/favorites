@@ -1,3 +1,10 @@
+
+body {
+  background-image: linear-gradient(#77FFC9, #B9FF76);
+  height : 2200px;
+  font-family: 'Acme', sans-serif;
+}
+
 ul {
   list-style: none;
   text-align: center;
@@ -18,8 +25,6 @@ ul {
     /* text-align: left; */
     transition: background 250ms ease-in-out,
                 transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
 }
 
 .editB {
@@ -37,8 +42,6 @@ ul {
   /* text-align: left; */
   transition: background 250ms ease-in-out,
               transform 150ms ease;
-  -webkit-appearance: none;
-  -moz-appearance: none;
 }
 .rankB {
     display: inline-block;
@@ -55,8 +58,6 @@ ul {
     /* text-align: left; */
     transition: background 250ms ease-in-out,
                 transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
 }
 
 .showB {

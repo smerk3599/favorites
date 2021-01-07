@@ -10,8 +10,7 @@ items.get('/new/:catName', (req, res) => {
       {
         category: req.params.catName,
         groupItems: categoryItems
-      }
-  )
+      })
   })
 })
 
@@ -45,7 +44,6 @@ items.post('/:catName', (req,res) => {
 //INDEX
 items.get('/:foundCategory', (req, res) => {
   Item.find({category: req.params.foundCategory}, 'name rank', (err, categoryItems) => {
-  console.log(categoryItems);
   res.render(
     'items/index.ejs',
     {
@@ -59,7 +57,6 @@ items.get('/:foundCategory', (req, res) => {
 items.delete('/:id/:catName/:rank/:arrayLength', (req, res) => {
   const lengthOfArray = parseInt(req.params.arrayLength);
   const intRank = parseInt(req.params.rank) + 1;
-  // if intRank <= lengthOfArray {}
   for (var i = intRank; i <= lengthOfArray; i++) {
     Item.findOneAndUpdate({rank: i}, {$inc: {rank: -1}}, {new: true}, (err, updatedModel) => {})
   }
@@ -79,10 +76,8 @@ items.put('/:catName/:id', (req, res) => {
 items.put('/rankup/:catName/:rank/:id', (req, res) => {
   const intRank = parseInt(req.params.rank);
   let shiftItemRank = 0;
-  console.log(intRank);
   if (intRank > 1) {
     shiftItemRank = intRank - 1;
-    console.log(shiftItemRank);
     Item.findOneAndUpdate({rank: shiftItemRank}, {$inc: {rank: 1}}, {new: true}, (err, updatedModel) => {})
     Item.findByIdAndUpdate(req.params.id, {$inc: {rank: -1}}, {new: true}, (err, newModel) => {
       res.redirect(`../../../${req.params.catName}`);
@@ -97,11 +92,8 @@ items.put('/rankdown/:catName/:rank/:arrayLength/:id', (req, res) => {
   const intRank = parseInt(req.params.rank);
   const intArrLength = parseInt(req.params.arrayLength);
   let shiftItemRank = 0;
-  console.log(intRank);
-  console.log(intArrLength);
   if (intRank < intArrLength) {
     shiftItemRank = intRank + 1;
-    console.log(shiftItemRank);
     Item.findOneAndUpdate({rank: shiftItemRank}, {$inc: {rank: -1}}, {new: true}, (err, updatedModel) => {})
     Item.findByIdAndUpdate(req.params.id, {$inc: {rank: 1}}, {new: true}, (err, newModel) => {
       res.redirect(`../../../../${req.params.catName}`);

@@ -7,7 +7,7 @@
     <nav>
       <%- include ('../partials/navItems.ejs') %>
     </nav>
-    <h1 class="container mx-auto" style="width: 100px;">Favorite <%=category%></h1>
+    <h1 class="container mx-auto" style="width: 100px;">Edit <%=item.name%></h1>
     <div class="container mx-auto" style="width: 100px;">
       <form action="/item/<%=category%>/<%=item._id%>?_method=PUT" method="POST">
         <label for="name">Name:</label>

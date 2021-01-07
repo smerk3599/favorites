@@ -9,8 +9,7 @@
   </nav>
     <h1 class="container mx-auto" style="width: 600px;">Please Enter a New Item</h1>
     <div class="container mx-auto" style="width: 350px;">
-      <% let newItemRank = (parseInt(groupItems.length) + 1)
-          console.log(newItemRank);%>
+      <% let newItemRank = (parseInt(groupItems.length) + 1);%>
       <form action="/item/<%=category%>" method="post">
         <input type="hidden" name="category" value="<%=category%>">
         <label for="name">Name:</label>

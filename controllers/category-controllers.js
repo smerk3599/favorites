@@ -38,7 +38,6 @@ categories.get('/edit/:id', (req, res) => {
 // SHOW
 categories.get('/:id', (req, res) => {
   Category.findById(req.params.id, (error, foundCategory) => {
-    console.log(foundCategory);
     res.redirect(`../item/${foundCategory.name}`)
   })
 })
