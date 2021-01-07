@@ -19,14 +19,14 @@
               <%= item.name %>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item showB" href="/item/<%=item._id%>">Show <%= item.name %></a></li>
+              <li><a class="dropdown-item showB" href="/item/<%=category%>/<%=item._id%>">Show <%= item.name %></a></li>
               <li>
-                <form class="dropdown-item" action="/item/rankup/<%=category%>/<%=item.rank%>?_method=PUT" method="POST">
+                <form class="dropdown-item" action="/item/rankup/<%=category%>/<%=item.rank%>/<%=item._id%>?_method=PUT" method="POST">
                 <input type="submit" class="rankB" value="Rank <%= item.name %> Up"/>
                 </form>
               </li>
               <li>
-                <form class="dropdown-item" action="/item/rankdown/<%=category%>/<%=item.rank%>/<%=groupItems.length%>?_method=PUT" method="POST">
+                <form class="dropdown-item" action="/item/rankdown/<%=category%>/<%=item.rank%>/<%=groupItems.length%>/<%=item._id%>?_method=PUT" method="POST">
                 <input type="submit" class="rankB" value="Rank <%= item.name %> Down"/>
                 </form>
               </li>

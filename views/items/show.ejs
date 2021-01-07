@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/navItems.ejs') %>
+    </nav>
+    <div class="container mx-auto" style="width: 100px;">
+      <div class="dropdown">
+        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> <%=item.name%>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item editB" href="/item/edit/<%=category%>/<%=item._id%>">Edit <%= item.name %></a></li>
+          <li><a class="dropdown-item backB" href="/item/<%=category%>">Back</a></li>
+        </ul>
+        <br>
+        <br>
+        <h4 class="container mx-auto" style="width: 100px;">Description:</h4>
+        <p class="container mx-auto" style="width: 150px;"><%=item.description%></p>
+      </div>
+    </div>
+  </body>
