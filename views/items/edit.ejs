@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/navItems.ejs') %>
+    </nav>
+    <h1 class="container mx-auto" style="width: 100px;">Favorite <%=category%></h1>
+    <div class="container mx-auto" style="width: 100px;">
+      <form action="/item/<%=category%>?_method=PUT" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="<%=item.name%>" /><br>
+        <label for="description">Description:</label>
+        <textarea class="description" name="description" rows="4" cols="50" value="<%=item.description%>">
+        </textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </div>

@@ -64,7 +64,7 @@ ul {
   /* box-sizing: border-box; */
 
 }
-#description {
+.description {
   border-radius: 8px;
   resize: none;
 }
