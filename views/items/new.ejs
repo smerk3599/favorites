@@ -7,7 +7,7 @@
   <nav>
     <%- include ('../partials/navItems.ejs') %>
   </nav>
-    <h1 class="container mx-auto" style="width: 600px;">Please Enter a New Item</h1>
+    <h1 class="container mx-auto" style="width: 400px;">Enter a New Item</h1>
     <div class="container mx-auto" style="width: 350px;">
       <% let newItemRank = (parseInt(groupItems.length) + 1);%>
       <form action="/item/<%=category%>" method="post">
