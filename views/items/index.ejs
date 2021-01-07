@@ -30,7 +30,7 @@
                 <input type="submit" class="rankB" value="Rank <%= item.name %> Down"/>
                 </form>
               </li>
-              <li><form action="/item/<%=item._id%>/<%=category%>?_method=DELETE" method="POST">
+              <li><form action="/item/<%=item._id%>/<%=category%>/<%=item.rank%>/<%=groupItems.length%>?_method=DELETE" method="POST">
                 <input class="deleteB" type="submit" value="Delete <%= item.name %>"/>
                 </form>
               </li>

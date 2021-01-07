@@ -9,7 +9,7 @@
     </nav>
     <h1 class="container mx-auto" style="width: 100px;">Favorite <%=category%></h1>
     <div class="container mx-auto" style="width: 100px;">
-      <form action="/item/<%=category%>?_method=PUT" method="POST">
+      <form action="/item/<%=category%>/<%=item._id%>?_method=PUT" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" value="<%=item.name%>" /><br>
         <label for="description">Description:</label>
@@ -18,3 +18,4 @@
         <input type="submit" value="Submit">
       </form>
     </div>
+  </body>

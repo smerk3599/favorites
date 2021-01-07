@@ -56,10 +56,23 @@ items.get('/:foundCategory', (req, res) => {
 })
 
 // DELETE
-items.delete('/:id/:catName', (req, res) => {
+items.delete('/:id/:catName/:rank/:arrayLength', (req, res) => {
+  const lengthOfArray = parseInt(req.params.arrayLength);
+  const intRank = parseInt(req.params.rank) + 1;
+  // if intRank <= lengthOfArray {}
+  for (var i = intRank; i <= lengthOfArray; i++) {
+    Item.findOneAndUpdate({rank: i}, {$inc: {rank: -1}}, {new: true}, (err, updatedModel) => {})
+  }
   Item.findByIdAndRemove(req.params.id, (err, deletedItem) => {
     res.redirect(`/item/${req.params.catName}`)
   })
+})
+
+//UPDATE
+items.put('/:catName/:id', (req, res) => {
+  Item.findByIdAndUpdate(req.params.id, req.body, { new: true },(err, updatedModel) => {
+      res.redirect(`/item/${req.params.catName}`)
+    })
 })
 
 // UPDATE RANK UP
